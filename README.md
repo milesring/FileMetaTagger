@@ -1,7 +1,8 @@
 # FileMetaTagger
 
 FileMetaTagger is a tool designed to enhance your podcast listening experience by automatically tagging podcast episodes with correct ID3 metadata. 
-It is intended to be paired with a podcast application that auto-downloads new episodes of podcasts. 
+It is intended to be paired with a podcast application that auto-downloads new episodes of podcast.
+This application was built around [PodGrab](https://github.com/akhilrex/podgrab) 
 This tool monitors specific directories for new podcast files and sets the appropriate ID3 tags, allowing for seamless organization and categorization in your audio library.
 
 ## Features
