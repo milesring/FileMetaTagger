@@ -74,7 +74,7 @@ Once FileMetaTagger is configured and running, it will automatically monitor the
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE.txt).
 
 ## Acknowledgements
 
