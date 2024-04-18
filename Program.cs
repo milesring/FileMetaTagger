@@ -26,8 +26,6 @@ namespace FileMetaTagger
 
             string baseDirectory = "Audio";
 
-            Environment.SetEnvironmentVariable("SCAN_RATE", (0.5).ToString());
-
             var podcastEnv = Environment.GetEnvironmentVariable("PODCASTS");
             if (!string.IsNullOrEmpty(podcastEnv))
             {
