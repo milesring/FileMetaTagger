@@ -108,8 +108,9 @@ namespace FileMetaTagger
                 _logger.LogError($"{_podcast.Name}: File {Path.GetFileName(filePath)} corrupt or unable to be opened.");
                 return;
             }
+            var retagAllFilesVariable = Environment.GetEnvironmentVariable("RETAGALLFILES");
 
-            if (tfile.Tag.AlbumArtists.Contains(_podcast.Name) &&
+            if (!bool.TryParse(retagAllFilesVariable, out bool retag) && tfile.Tag.AlbumArtists.Contains(_podcast.Name) &&
                 tfile.Tag.Performers.Contains(_podcast.Name) &&
                 tfile.Tag.Album.Equals(_podcast.Name))
             {
@@ -145,6 +146,7 @@ namespace FileMetaTagger
             tfile.Tag.AlbumArtists = [_podcast.Name];
             tfile.Tag.Performers = [_podcast.Name];
             tfile.Tag.Album = _podcast.Name;
+            tfile.Tag.Genres = ["Podcast"];
             try
             {
 
