@@ -10,10 +10,24 @@ namespace FileMetaTagger
     {
         static async Task Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Information()
-                .WriteTo.Console()
-                .CreateLogger();
+            var logLevelVariable = Environment.GetEnvironmentVariable("LOG_LEVEL");
+            int.TryParse(logLevelVariable, out int logLevel);
+            var loggerConfiguration = new LoggerConfiguration()
+            .WriteTo.Console();
+            switch (logLevel)
+            {
+                case 0:
+                    loggerConfiguration.MinimumLevel.Information();
+                    break;
+                case 1:
+                    loggerConfiguration.MinimumLevel.Debug();
+                    break;
+                default:
+                    loggerConfiguration.MinimumLevel.Error();
+                    break;
+            }
+            Log.Logger = loggerConfiguration.CreateLogger();
+
 
             ServiceCollection serviceCollection = new();
             serviceCollection.AddLogging(builder =>
